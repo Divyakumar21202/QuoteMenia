@@ -29,16 +29,19 @@ public class QuoteRecyclerAdapter extends RecyclerView.Adapter<QuoteRecyclerAdap
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
       View view=  LayoutInflater.from(context).inflate(R.layout.quoteview,parent,false);
-       viewHolder viewHolder =new viewHolder(view);
+
+       viewHolder viewHolder = new viewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
-        holder.Quote.setText(arrayList.get(position).Quote);
-        holder.name.setText(arrayList.get(position).name);
+       QuotesViewHolder quotesViewHolder=arrayList.get(position);
+       holder.Quote.setText(quotesViewHolder.getQuote());
+       holder.Name.setText(quotesViewHolder.getName());
 
     }
 
@@ -47,12 +50,13 @@ public class QuoteRecyclerAdapter extends RecyclerView.Adapter<QuoteRecyclerAdap
         return arrayList.size();
     }
 
+
     public static class viewHolder extends RecyclerView.ViewHolder {
-        TextView name,Quote;
-        public viewHolder(View view){
-            super(view);
-            name=view.findViewById(R.id.txtview_layout_name);
-            Quote=view.findViewById(R.id.txtview_layout_Quote);
+        TextView Name,Quote;
+        public viewHolder(@NonNull View itemView) {
+            super(itemView);
+            Name=itemView.findViewById(R.id.txtview_layout_name);
+            Quote=itemView.findViewById(R.id.txtview_layout_Quote);
         }
     }
 }

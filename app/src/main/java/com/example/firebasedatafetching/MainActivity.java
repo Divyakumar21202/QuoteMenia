@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         btnGoToRecyclerList=findViewById(R.id.btn_go_to_recycler_list);
 
 
+        btnGoToRecyclerList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentToQuotesList=new Intent(getApplicationContext(),QuotesListView.class);
+                startActivity(intentToQuotesList);
+            }
+        });
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,10 +1,14 @@
 package com.example.firebasedatafetching;
 
 public class QuotesViewHolder {
-    String name,Quote;
+    String Name;
+    String Quote;
 
-    public QuotesViewHolder(String name, String quote) {
-        this.name = name;
-        Quote = quote;
+    public String getQuote() {
+        return Quote;
+    }
+
+    public String getName() {
+        return Name;
     }
 }
